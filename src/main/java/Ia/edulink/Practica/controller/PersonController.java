@@ -1,7 +1,7 @@
 package Ia.edulink.Practica.controller;
 
-import Ia.edulink.Practica.model.person; // Asegúrate de que la clase se llame "Person" con mayúscula
-import Ia.edulink.Practica.service.personService;
+import Ia.edulink.Practica.model.Person; // Cambiado a "Person" con mayúscula
+import Ia.edulink.Practica.service.PersonService; // Cambiado a "PersonService" con mayúscula
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,36 +13,37 @@ import reactor.core.publisher.Mono;
 
 @RestController
 @RequestMapping("/person")
-public class personController {
-    private final personService personService;
+public class PersonController { // Cambiado a "PersonController" con mayúscula
 
-    private static final Logger logger = LoggerFactory.getLogger(personController.class);
+    private final PersonService personService; // Cambiado a "PersonService" con mayúscula
+
+    private static final Logger logger = LoggerFactory.getLogger(PersonController.class); // Cambiado a "PersonController" con mayúscula
 
     @Autowired
-    public personController(personService personService) {
+    public PersonController(PersonService personService) { // Cambiado a "PersonService" con mayúscula
         this.personService = personService;
     }
 
-    @GetMapping("")
-    public Flux<person> obtenerTodosLosPerson() {
+    @GetMapping("/ListarTodo")
+    public Flux<Person> obtenerTodosLosPersons() { // Cambiado a "Person" con mayúscula
         return personService.obtenerTodosLosPersons();
     }
 
     @GetMapping("/listar/{id}")
-    public Mono<ResponseEntity<person>> obtenerPersonPorId(@PathVariable Long id) {
+    public Mono<ResponseEntity<Person>> obtenerPersonPorId(@PathVariable Long id) { // Cambiado a "Person" con mayúscula
         return personService.obtenerPersonPorId(id)
                 .map(person -> ResponseEntity.ok().body(person))
                 .defaultIfEmpty(ResponseEntity.notFound().build());
     }
 
     @PostMapping("/crear")
-    public Mono<ResponseEntity<person>> guardarPerson(@RequestBody person person) {
+    public Mono<ResponseEntity<Person>> guardarPerson(@RequestBody Person person) { // Cambiado a "Person" con mayúscula
         return personService.guardarPerson(person)
                 .map(createdPerson -> ResponseEntity.status(HttpStatus.CREATED).body(createdPerson));
     }
 
     @PutMapping("/actualizar/{id}")
-    public Mono<ResponseEntity<person>> actualizarPerson(@PathVariable Long id, @RequestBody person person) {
+    public Mono<ResponseEntity<Person>> actualizarPerson(@PathVariable Long id, @RequestBody Person person) { // Cambiado a "Person" con mayúscula
         person.setId(id);
         return personService.guardarPerson(person)
                 .map(updatedPerson -> ResponseEntity.ok().body(updatedPerson));
@@ -61,12 +62,12 @@ public class personController {
     }
 
     @GetMapping("/activos")
-    public Flux<person> obtenerPersonasActivas() {
+    public Flux<Person> obtenerPersonasActivas() { // Cambiado a "Person" con mayúscula
         return personService.obtenerPersonasActivas();
     }
 
     @GetMapping("/inactivos")
-    public Flux<person> obtenerPersonasInactivas() {
+    public Flux<Person> obtenerPersonasInactivas() { // Cambiado a "Person" con mayúscula
         return personService.obtenerPersonasInactivas();
     }
 }
