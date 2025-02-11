@@ -1,0 +1,13 @@
+server:
+  port: 8080  # Asegúrate de que este puerto esté disponible
+spring:
+  r2dbc:
+    url: jdbc:postgresql://ep-odd-lab-a8v74ax4-pooler.eastus2.azure.neon.tech/neondb?sslmode=require
+    username: neondb_owner
+    password: npg_lmMFHLYVCa26
+
+# sdk install java 17.0.11-jbr
+# mvn clean install -DskipTests
+# mvn spring-boot:run
+# jdbc:postgresql://ep-odd-lab-a8v74ax4-pooler.eastus2.azure.neon.tech/neondb?user=neondb_owner&password=npg_lmMFHLYVCa26&sslmode=require
+# jdbc:postgresql://ep-odd-lab-a8v74ax4-pooler.eastus2.azure.neon.tech/neondb?user=neondb_owner&password=npg_lmMFHLYVCa26&sslmode=require
