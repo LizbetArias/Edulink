@@ -1,2 +1,2 @@
 # Edulink
-Evaluacion paras la pre practicas profesionales de Valle Grande.
+Evaluacion para la pre practicas profesionales de Valle Grande.
