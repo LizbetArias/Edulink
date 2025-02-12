@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <title>Edulink</title>
+    <meta charset="UTF-8" />
+    <base href="/" />
+    <link rel="stylesheet" href="styles.css" />
+
+    <!-- Favicon (icono de la pestaña) -->
+    <link rel="icon" type="image/png" href="https://cdn4.iconfinder.com/data/icons/logos-brands-7/512/google_logo-google_icongoogle-512.png" />
+  </head>
+  <body>
+    <!-- Pantalla de carga -->
+    <div class="loading-screen" id="loading-screen">
+      <div class="spinner"></div>
+    </div>
+
+    <!-- Contenedor de la aplicación Angular con el logo -->
+    <div id="app-container" style="display: none; text-align: center;">
+    
+      <app-root>Edulink</app-root>
+    </div>
+
+    <script>
+      // Esperar 3 segundos y ocultar la pantalla de carga
+      setTimeout(() => {
+        document.getElementById("loading-screen").style.display = "none";
+        document.getElementById("app-container").style.display = "block";
+      }, 3000);
+    </script>
+  </body>
+</html>
